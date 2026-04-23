@@ -673,47 +673,120 @@ main .titulo_seccao {
     
     /* --- 1. CABEÇALHO E MENU --- */
     .cabecalho {
-        flex-direction: column; /* Coloca o menu debaixo do logotipo */
-        gap: 15px; /* Espaço entre o logo e o menu */
+        flex-direction: column; 
+        gap: 15px; 
         padding: 15px 5%;
     }
 
     .menu_principal {
-        flex-wrap: wrap; /* Se o menu for comprido, os links passam para a linha de baixo */
+        flex-wrap: wrap; 
         justify-content: center;
-        gap: 15px; 
+        text-align: center; /* Garante que o texto do menu centra */
+        gap: 10px 20px; /* Dá espaço na horizontal e vertical */
     }
 
     .menu_links {
-        font-size: 14px; /* Letras um bocadinho mais pequenas para caberem melhor */
+        font-size: 13px; /* Reduz ligeiramente para ficar mais delicado */
+        letter-spacing: 2px; /* Afasta as letrinhas umas das outras */
     }
 
+    /* --- 2. PÁGINA INICIAL --- */
+    .bloco_texto {
+        width: 100%;
+        order: 2; 
+        padding: 10px 5% 50px 5%; /* Ajusta o espaço à volta do bloco */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra o botão e os elementos no meio */
+        text-align: center; /* Força o alinhamento central */
+    }
+
+    /* O Título */
+    .bloco_texto h2 { 
+        font-size: 34px; 
+        line-height: 1.2;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    /* O Parágrafo */
+    .bloco_texto p {
+        font-size: 16px; /* Tamanho perfeito para leitura no telemóvel */
+        line-height: 1.8; /* Dá mais espaço entre as linhas de texto */
+        padding: 0 15px; /* Empurra o texto para dentro, afastando-o das bermas */
+        margin-bottom: 35px;
+        text-align: center;
+    }
+
+    /* --- 2. PÁGINA INICIAL --- */
+    .bloco_texto {
+        width: 100%;
+        order: 2; 
+        padding: 10px 5% 50px 5%; /* Ajusta o espaço à volta do bloco */
+        text-align: center;
+        align-items: center;
+    }
+
+    /* O Título */
+    .bloco_texto h2 { 
+        font-size: 34px; 
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    /* O Parágrafo (Onde as letras estavam mais estranhas) */
+    .bloco_texto p {
+        font-size: 16px; /* Tamanho perfeito para leitura no telemóvel */
+        line-height: 1.8; /* Dá mais espaço entre as linhas de texto */
+        padding: 0 15px; /* Empurra o texto para dentro, afastando-o das bermas */
+        margin-bottom: 35px;
+    }
     /* --- 2. PÁGINA INICIAL (Versão Telemóvel Corrigida) --- */
+    /* --- 2. PÁGINA INICIAL (Ocupar a tela toda) --- */
     .pagina_inicial {
         flex-direction: column; 
-        height: auto; 
+        height: auto;      /* Remove a altura fixa para o texto não ser cortado em baixo */
+        min-height: 100vh; /* Garante que a página ocupa pelo menos o ecrã todo */
+        overflow: visible; /* Garante que nada seja escondido/cortado */
+        width: 100%;
+    }
+
+    .bloco_texto {
+        width: 100%;       /* Ocupa a largura total da tela */
+        box-sizing: border-box; /* Garante que o padding não "empurre" o site para fora */
+        padding: 40px 5%;  /* Pequena margem só para as letras não colarem ao vidro do tlm */
+        order: 2; 
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bloco_texto h2 { 
+        font-size: 32px; 
+        width: 100%;       /* Título ocupa a largura disponível */
+        margin-bottom: 20px;
+    }
+
+    .bloco_texto p {
+        font-size: 17px; 
+        width: 100%;       /* Parágrafo ocupa a largura total disponível */
+        line-height: 1.6;
+        padding: 0;        /* Removemos o padding extra para usar a tela toda */
+        margin-bottom: 30px;
     }
 
     .bloco_imagem {
         width: 100%;
-        height: 35vh; /* Reduzimos a altura para não ocupar tanto espaço */
-        min-height: 250px; /* Reduzimos o tamanho mínimo */
-        order: 1; /* Mantém a imagem no topo */
-        margin-top: 20px; /* Dá um pequeno espaço acima da imagem */
+        height: 40vh;      /* Define uma altura fixa para a foto no topo */
+        order: 1; 
     }
 
     .bloco_imagem img {
-        top: 0;
-        object-fit: contain; /* Mostra a imagem inteira sem fazer zoom/cortar */
-        padding: 0 5%; /* Garante que a foto não cola aos limites do ecrã */
-    }
-
-    .bloco_texto {
         width: 100%;
-        order: 2; /* O texto fica por baixo */
-        padding: 20px 8% 60px 8%; /* Ajustamos os espaços em branco para ficar mais equilibrado */
-        text-align: center;
-        align-items: center;
+        height: 100%;
+        object-fit: contain; /* Mostra o sofá inteiro sem cortar */
+        top: 0;
     }
     /* --- 3. TAMANHOS DOS TÍTULOS --- */
     /* Reduz todos os títulos gigantes para não saírem do ecrã */
