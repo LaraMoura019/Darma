@@ -688,8 +688,33 @@ main .titulo_seccao {
         font-size: 14px; /* Letras um bocadinho mais pequenas para caberem melhor */
     }
 
-    
+    /* --- 2. PÁGINA INICIAL (Versão Telemóvel Corrigida) --- */
+    .pagina_inicial {
+        flex-direction: column; 
+        height: auto; 
+    }
 
+    .bloco_imagem {
+        width: 100%;
+        height: 35vh; /* Reduzimos a altura para não ocupar tanto espaço */
+        min-height: 250px; /* Reduzimos o tamanho mínimo */
+        order: 1; /* Mantém a imagem no topo */
+        margin-top: 20px; /* Dá um pequeno espaço acima da imagem */
+    }
+
+    .bloco_imagem img {
+        top: 0;
+        object-fit: contain; /* Mostra a imagem inteira sem fazer zoom/cortar */
+        padding: 0 5%; /* Garante que a foto não cola aos limites do ecrã */
+    }
+
+    .bloco_texto {
+        width: 100%;
+        order: 2; /* O texto fica por baixo */
+        padding: 20px 8% 60px 8%; /* Ajustamos os espaços em branco para ficar mais equilibrado */
+        text-align: center;
+        align-items: center;
+    }
     /* --- 3. TAMANHOS DOS TÍTULOS --- */
     /* Reduz todos os títulos gigantes para não saírem do ecrã */
     .bloco_texto h2 { font-size: 32px; }
