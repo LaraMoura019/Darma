@@ -741,8 +741,8 @@ main .titulo_seccao {
         padding: 0 15px; /* Empurra o texto para dentro, afastando-o das bermas */
         margin-bottom: 35px;
     }
-    /* --- 2. PÁGINA INICIAL (Versão Telemóvel Corrigida) --- */
-    /* --- 2. PÁGINA INICIAL (Ocupar a tela toda) --- */
+    /* --- 2. PÁGINA INICIAL --- */
+    /* --- 2. PÁGINA INICIAL --- */
     .pagina_inicial {
         flex-direction: column; 
         height: auto;      /* Remove a altura fixa para o texto não ser cortado em baixo */
