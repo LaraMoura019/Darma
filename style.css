@@ -523,17 +523,15 @@ body {
 }
 
 .grelha_servicos {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cria 4 colunas de tamanho igual */
+    gap: 30px; 
+    max-width: 1400px; 
+    margin: 0 auto; /* Centra a grelha no ecrã */
 }
 
 .servico_item {
-    flex: 1;
-    min-width: 280px;
-    max-width: 350px;
-    padding: 30px;
+    padding: 30px 20px;
     transition: transform 0.3s ease;
 }
 
@@ -670,7 +668,6 @@ main .titulo_seccao {
    DESIGN RESPONSIVO (TELEMÓVEIS - Ecrãs até 768px)
    ======================================================= */
 @media (max-width: 768px) {
-    
     /* --- 1. CABEÇALHO E MENU --- */
     .cabecalho {
         flex-direction: column; 
@@ -681,132 +678,94 @@ main .titulo_seccao {
     .menu_principal {
         flex-wrap: wrap; 
         justify-content: center;
-        text-align: center; /* Garante que o texto do menu centra */
-        gap: 10px 20px; /* Dá espaço na horizontal e vertical */
+        text-align: center;
+        gap: 10px 20px;
     }
 
     .menu_links {
-        font-size: 13px; /* Reduz ligeiramente para ficar mais delicado */
-        letter-spacing: 2px; /* Afasta as letrinhas umas das outras */
+        font-size: 13px;
+        letter-spacing: 2px;
     }
 
-    /* --- 2. PÁGINA INICIAL --- */
-    .bloco_texto {
-        width: 100%;
-        order: 2; 
-        padding: 10px 5% 50px 5%; /* Ajusta o espaço à volta do bloco */
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centra o botão e os elementos no meio */
-        text-align: center; /* Força o alinhamento central */
-    }
-
-    /* O Título */
-    .bloco_texto h2 { 
-        font-size: 34px; 
-        line-height: 1.2;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    /* O Parágrafo */
-    .bloco_texto p {
-        font-size: 16px; /* Tamanho perfeito para leitura no telemóvel */
-        line-height: 1.8; /* Dá mais espaço entre as linhas de texto */
-        padding: 0 15px; /* Empurra o texto para dentro, afastando-o das bermas */
-        margin-bottom: 35px;
-        text-align: center;
-    }
-
-    /* --- 2. PÁGINA INICIAL --- */
-    .bloco_texto {
-        width: 100%;
-        order: 2; 
-        padding: 10px 5% 50px 5%; /* Ajusta o espaço à volta do bloco */
-        text-align: center;
-        align-items: center;
-    }
-
-    /* O Título */
-    .bloco_texto h2 { 
-        font-size: 34px; 
-        line-height: 1.2;
-        margin-bottom: 20px;
-    }
-
-    /* O Parágrafo (Onde as letras estavam mais estranhas) */
-    .bloco_texto p {
-        font-size: 16px; /* Tamanho perfeito para leitura no telemóvel */
-        line-height: 1.8; /* Dá mais espaço entre as linhas de texto */
-        padding: 0 15px; /* Empurra o texto para dentro, afastando-o das bermas */
-        margin-bottom: 35px;
-    }
-    /* --- 2. PÁGINA INICIAL --- */
     /* --- 2. PÁGINA INICIAL --- */
     .pagina_inicial {
         flex-direction: column; 
-        height: auto;      /* Remove a altura fixa para o texto não ser cortado em baixo */
-        min-height: 100vh; /* Garante que a página ocupa pelo menos o ecrã todo */
-        overflow: visible; /* Garante que nada seja escondido/cortado */
-        width: 100%;
+        height: auto;      /* Remove a altura fixa de 90vh do PC */
+        min-height: 100vh; /* Ocupa pelo menos a altura do telemóvel */
+        overflow: visible; 
     }
 
-    .bloco_texto {
-        width: 100%;       /* Ocupa a largura total da tela */
-        box-sizing: border-box; /* Garante que o padding não "empurre" o site para fora */
-        padding: 40px 5%;  /* Pequena margem só para as letras não colarem ao vidro do tlm */
-        order: 2; 
-        text-align: center;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .bloco_texto h2 { 
-        font-size: 32px; 
-        width: 100%;       /* Título ocupa a largura disponível */
-        margin-bottom: 20px;
-    }
-
-    .bloco_texto p {
-        font-size: 17px; 
-        width: 100%;       /* Parágrafo ocupa a largura total disponível */
-        line-height: 1.6;
-        padding: 0;        /* Removemos o padding extra para usar a tela toda */
-        margin-bottom: 30px;
-    }
-
+    /* A Imagem passa para cima no telemóvel */
     .bloco_imagem {
         width: 100%;
-        height: 40vh;      /* Define uma altura fixa para a foto no topo */
+        height: 45vh; /* Dá um pouco mais de altura à imagem no telemóvel */
+        min-height: 300px; /* Garante que nunca fica demasiado pequena */
         order: 1; 
     }
 
     .bloco_imagem img {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* Mostra o sofá inteiro sem cortar */
+        object-fit: contain; 
         top: 0;
     }
-    /* --- 3. TAMANHOS DOS TÍTULOS --- */
-    /* Reduz todos os títulos gigantes para não saírem do ecrã */
-    .bloco_texto h2 { font-size: 32px; }
+
+    /* O Texto passa para baixo */
+    .bloco_texto {
+        width: 100%;
+        order: 2; 
+        padding: 40px 5% 60px 5%; /* Espaço em cima, lados e baixo */
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        text-align: center;
+        box-sizing: border-box; /* Impede que o padding alargue o ecrã */
+    }
+
+    .bloco_texto h2 { 
+        font-size: 32px; 
+        line-height: 1.2;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .bloco_texto p {
+        font-size: 16px; 
+        line-height: 1.6;
+        margin-bottom: 35px;
+        width: 100%;
+        padding: 0; /* Remove padding lateral problemático */
+    }
+
+    /* --- 3. TAMANHOS DOS RESTANTES TÍTULOS --- */
     .conteudo_artesanal h2 { font-size: 30px; letter-spacing: 2px; }
     .sobre_intro h1 { font-size: 32px; }
     .titulo_seccao, .titulo_seccao_projetos { font-size: 30px; }
 
     /* --- 4. PRODUTOS E RODAPÉ --- */
     .grelha_produtos {
-        grid-template-columns: 1fr; /* Força os sofás a aparecerem 1 por linha (uma coluna) */
+        grid-template-columns: 1fr; /* 1 produto por linha */
     }
 
     .rodape {
-        flex-direction: column; /* Empilha as colunas do rodapé */
+        flex-direction: column; 
         text-align: center;
     }
 
     .rodape_contactos, 
     .rodape_redes_sociais {
-        align-items: center; /* Centra os links de contacto e redes sociais */
+        align-items: center; 
+    }
+}
+
+@media (max-width: 992px) {
+    .grelha_servicos {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 600px) {
+    .grelha_servicos {
+        grid-template-columns: 1fr;
     }
 }
